@@ -1,0 +1,94 @@
+npm i express - сервер
+npm i mongoose - база данных
+npm i hbs - использование partials
+npm i cookie-parser - для получения куки из из браузера
+npm i express-session - для создания сессий
+npm i dotenv - для выведения переменных в env файл
+npm i connect-mongo - для хранения сессий
+
+
+Настройка установленных файлов:
+
+express:
+  app: 
+   const express = require("express");
+   const app = express()
+
+hbs:
+  app: 
+   const hbs = require("hbs");
+
+cookie-parser:
+  app: 
+   const coockieParser = require("cookie-parser")
+
+express-session:
+  app: 
+    const expressSession = require("express-session")
+    //
+    // require('crypto').randomBytes(64).toString('hex')
+    app.use(session({
+    name: 'sid',
+    secret: process.env.SECRETSESSION,
+    resave: false,
+    store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    }),
+    saveUninitialized: false,
+    })) - при подключении сессии
+
+
+mongoose
+  app:
+   const dbConnect = require("./config/db")
+    //после const app = express()
+    dbConnect()
+
+  config/db.js:
+    require('dotenv').config()
+    const mongoose = require('mongoose')
+    const options = {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      autoIndex: true,
+      poolSize: 10,
+      bufferMaxEntries: 0,
+      }
+    const dbConnectionURL = process.env.DB
+    function dbConnect() {
+    mongoose.connect(dbConnectionURL, options, (err) => {
+    if (err) return console.log(err)
+    return console.log('Success connected to mogno')
+       })
+      }
+    module.exports = dbConnect
+
+connect-mongo:
+  const MongoStore = require('connect-mongo')(session)
+
+
+
+
+
+Дополнительно подключить:
+
+const path = require("path") - для указания универсального пути к папкам
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
+        (((__dirname = process.env.PWD)))
+
+app.use(express.json()) - преобразование файлов из json в JS получении запроса от ручки
+
+app.use(express.urlencoded({ extended: true })) - доступ к req.body из запросов
+
+app.use(express.static(path.join(__dirname, 'public'))) - подключение папки public
+
+app.set('trust proxy', 1) - при подключении к серверу
+
+/////////Доп:
+app.use((req, res, next) => {
+  console.log(req.user)
+  res.locals.user = req.user
+  next()
+})

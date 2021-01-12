@@ -1,0 +1,127 @@
+<div class="mainBody">
+  <div class="leftBar">
+    <div class="students">
+      <div class="navBlock">
+        <form method="GET" action="/student/new/{{id}}">
+          <button id="addAStudent" class="navBlockButtons addAStudent">Add a Student</button>
+        </form>
+      </div>
+      {{#each students}}
+      <article id="{{this.id}}" class="student studentRow"><a style="color: rgb(122,95,164);"
+          href="/student/{{this.teacherID}}/{{this._id}}">
+          <div>{{this.name}}</div>
+        </a>
+        <div><img style="margin-left: 10px; cursor: pointer" id="deleteStud" width="15px" height="15px"
+            src="data:image/png;base64,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"
+            alt="" srcset="">
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    <div class="oldPlans">
+      <div class="navBlock">
+        <form method="GET" action="/student/newPlan">
+          <button id="addAPlan" class="navBlockButtons">Add a Plan</button>
+        </form>
+      </div>
+      {{# each lessonPlans}}
+      <article id="{{this.id}}" class="student studentRow">
+        <div id="planForLesson" class="planString"><a style="color: rgb(122,95,164);"
+            href="/student/update/{{this.id}}">{{this.theme}}</a>
+        </div>
+        <div>{{this.date}}</div>
+        <div><img style="margin-left: 10px; cursor: pointer" id="deletePlan" width="15px" height="15px"
+            src="data:image/png;base64,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"
+            alt="" srcset="">
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+  <div class="mainBlock">
+    <form method="POST" id="{{studentInfo._id}}" action="/student/editStudent/{{studentInfo._id}}">
+      <div class="infoBar">
+        <div>Student: <input type="text" value="{{studentInfo.name}}" name="name" id=""></div>
+        <div>E-mail: <input type="email" value="{{studentInfo.email}}" name="email"> </div>
+        <div>Tel: <input type="text" name="phone" value=" {{studentInfo.phone}}" id=""></div>
+        <div>Skype: <input value="{{studentInfo.skype}}" type="text" name="" id="skype"> </div>
+      </div>
+      <div class="timetableBar">
+        <span>Lessons: </span>
+        <div class="timeTableLesson"> Monday: <input name="Monday" value="{{studentInfo.Monday}}" type="time"></div>
+        <div class="timeTableLesson"> Tuesday: <input name="Tuesday" value="{{studentInfo.Tuesday}}" type="time"></div>
+        <div class="timeTableLesson"> Wednesday: <input name="Wednesday" value="{{studentInfo.Wednesday}}" type="time">
+        </div>
+        <div class="timeTableLesson"> Thursday: <input name="Thursday" value="{{studentInfo.Thursday}}" type="time">
+        </div>
+        <div class="timeTableLesson"> Friday: <input name="Friday" value="{{studentInfo.Friday}}" type="time"></div>
+        <div class="timeTableLesson"> Saturday: <input name="Saturday" value="{{studentInfo.Saturday}}" type="time">
+        </div>
+        <div class="timeTableLesson"> Sunday: <input name="Sunday" value="{{studentInfo.Sunday}}" type="time"></div>
+      </div>
+      <div style="display:flex; justify-content: center;
+">
+        <button style="width: 100px;">Save</button>
+      </div>
+
+
+    </form>
+
+    {{!-- <div class="timetableBar">
+      <span>Lessons: </span>
+      {{#if studentInfo.Monday}}
+      <div class="timeTableLesson"> Monday: {{studentInfo.Monday}}</div>
+      {{/if}}
+      {{#if studentInfo.Tuesday}}
+      <div class="timeTableLesson"> Tuesday: {{studentInfo.Tuesday}}</div>
+      {{/if}}
+      {{#if studentInfo.Wednesday}}
+      <div class="timeTableLesson"> Wednesday: {{studentInfo.Wednesday}}</div>
+      {{/if}}
+      {{#if studentInfo.Thursday}}
+      <div class="timeTableLesson"> Thursday: {{studentInfo.Thursday}}</div>
+      {{/if}}
+      {{#if studentInfo.Friday}}
+      <div class="timeTableLesson"> Friday: {{studentInfo.Friday}}</div>
+      {{/if}}
+      {{#if studentInfo.Saturday}}
+      <div class="timeTableLesson"> Saturday: {{studentInfo.Saturday}}</div>
+      {{/if}}
+      {{#if studentInfo.Sunday}}
+      <div class="timeTableLesson"> Sunday: {{studentInfo.Sunday}}</div>
+      {{/if}}
+    </div> --}}
+    <div class="infoBlock">
+      <form id="{{latestPlan._id}}" method="POST" class="infoBlockForm" action="/student/editPlan/{{latestPlan._id}}">
+        <div class="infoBlockNav">
+          <div>Theme:<input name="theme" value="{{latestPlan.theme}}" type="text"></div>
+          <div>Date: <input name="date" value="{{latestPlan.date}}" type="date"></div>
+        </div>
+        <textarea class="inputBlock" name="planValue" id="" cols="35" rows="18">{{latestPlan.planValue}}</textarea>
+        <button style="width: 150px;">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="mainCalendar">
+    <div class="calender">
+      <div>Calendar</div>
+      <h1>В разработке</h1>
+      <div><img style="width: 350px;"
+          src="https://psv4.userapi.com/c520036/u269580601/docs/d37/b82c72ba964a/01.gif?extra=uCb_hiOcKcHDvd1AVe9d7VrByVNB034L6VcYebdhsw-w4wALd17QFq5hOnp3pjdGVeScB8nGnYQ0jtzl7YvMdvafpgJnSq4ud9tlQbCTFWKfTP6rC4vb2jZMvrsGswBq0mY7NT8mZ5Lmdj6yIEbm10Tn"
+          alt="" srcset=""></div>
+    </div>
+    <div class="lessons">
+      <div> Today's lessons</div>
+      <h1>В разработке</h1>
+      <div><img style="width: 350px;" src="https://thumbs.gfycat.com/DisloyalLimpHamster-small.gif" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{!-- //на главной странице API погоды, новостей
+// при выборе ученика появляется страница с его планами уроков слева(/home/studentId), в центре - выбранный урок
+//заметку для каждого урока
+//удаление студента
+//при добавлении студента указывать ддни недели и время уроков колво - выпадающ список --}}

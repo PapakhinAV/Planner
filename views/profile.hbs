@@ -1,0 +1,17 @@
+<div class="content">
+  <h3 class="title">Здесь вы можете изменить информацию о своем аккаунте</h3>
+  <form class="regForm formColumn" method="POST" action="/profile/{{id}}">
+    <div class="layout">
+      <div>
+        <input class="field" type="email" name="email" value="{{currentUser.email}}" placeholder="email">
+      </div>
+      <div>
+        <input class="field" type="tel" name="name" value="{{currentUser.name}}" placeholder="name">
+      </div>
+      <div>
+        <input class="field" type="password" name="password" placeholder="new password (min 4 symb)">
+      </div>
+      <button type="submit" class="regButtons">Save</button>
+    </div>
+  </form>
+</div>

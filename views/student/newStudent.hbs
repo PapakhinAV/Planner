@@ -1,0 +1,45 @@
+<div id="hiddenStudent" class="regForm">
+  <form class="regForm formColumn" method="POST" action="/student/saveNew">
+    <h1 class="title">Add a Student</h1>
+    <div class="layout">
+      <div>
+        <input required class="field" type="text" name="name" placeholder="name">
+      </div>
+      <div>
+        <input class="field" type="email" name="email" placeholder="email">
+      </div>
+      <div>
+        <input required class="field" type="text" name="phone" placeholder="phone number">
+      </div>
+      <div>
+        <input class="field" type="text" name="skype" placeholder="skype">
+      </div>
+      <div class="field">
+        <span class="lessonsTime" style="justify-content:center">Занятия:</span>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Пн:</div><input name="Monday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Вт:</div><input class="inputTime" name="Tuesday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Ср:</div><input name="Wednesday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Чт:</div><input name="Thursday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Пт:</div><input name="Friday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Сб:</div><input name="Saturday" type="time">
+        </div>
+        <div class="lessonsTime">
+          <div style="width: 80px;">Вс:</div><input name="Sunday" type="time">
+        </div>
+
+      </div>
+
+      <button id="saveNewStudent" type="submit" class="regButtons ">Submit</button>
+  </form>
+</div>

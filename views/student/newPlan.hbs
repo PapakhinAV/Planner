@@ -1,0 +1,22 @@
+<div id="hiddenPlan" class="regForm">
+  <form class="regForm formColumn" method="POST" action="/student/newPlan">
+    <h1 class="title">Add a Plan</h1>
+    <div class="layout">
+      <div style="display: flex; flex-direction: row">
+        <select class="field" name="studentId" id="">
+          {{#each allStudents}}
+          <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        <input class="field" type="text" name="theme" placeholder="theme">
+        <input class="field" style="width: 160px;" type="date" name="date" placeholder="date">
+      </div>
+      <div>
+
+      </div>
+      <div>
+        <textarea name="planValue" id="" cols="80" rows="10" placeholder="План урока"></textarea>
+      </div>
+      <button id="saveNewPlan" type="submit" class="regButtons ">Submit</button>
+  </form>
+</div>
