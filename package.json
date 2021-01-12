@@ -1,7 +1,7 @@
 {
-  "name": "self-assessment-rest",
+  "name": "Planner",
   "version": "1.0.0",
-  "description": "Пожалуйста, постарайтесь справиться с этим заданием за 3 часа.",
+  "description": "Планировщик занятий для репетиторов",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,14 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PapakhinAV/self-assessment-rest.git"
+    "url": "https://github.com/PapakhinAV/Planner"
   },
-  "author": "",
+  "author": "https://github.com/PapakhinAV/",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PapakhinAV/self-assessment-rest/issues"
-  },
-  "homepage": "https://github.com/PapakhinAV/self-assessment-rest#readme",
+  "bugs": {},
+  "homepage": "https://github.com/PapakhinAV/Planner",
   "dependencies": {
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
